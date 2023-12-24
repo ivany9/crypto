@@ -1,8 +1,7 @@
 import imagen from "../src/img/imagen-criptos.png"
 import styled from "@emotion/styled"
 import Formulario from "./components/Formulario"
-import useSelectMonedas from "./hooks/useSelectMonedas"
-import {monedas} from "./components/data/monedas"
+
 
 
 
@@ -54,13 +53,7 @@ display:block;
 function App() {
 
 
-
-  const [moneda,SelectMonedas]=useSelectMonedas('Elije tu Moneda', monedas)
-
-
-  
-
-  return (
+ return (
       
     <Contendor>
       
@@ -70,8 +63,6 @@ function App() {
               ></Imagen>
      <div>
     <Heading>Cotizador de Cripto Monedas</Heading>
-    <SelectMonedas />
-      {moneda}    
     <Formulario/>
     </div>
     
