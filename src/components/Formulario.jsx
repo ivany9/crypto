@@ -2,6 +2,8 @@ import styled from '@emotion/styled'
 import { useEffect, useState } from 'react'
 import useSelectMonedas from '../hooks/useSelectMonedas'
 import { monedas } from './data/monedas'
+import MensajeError from './MensajeError'
+
 
 
 const InputSubmit=styled.input`
@@ -25,9 +27,11 @@ transition:background-color .3S ease-in-out;
 `
 
 
-const Formulario = () => {
+const Formulario = ({setMonedas,cotizar}) => {
+
 
     const[crytpo,setCrypto]=useState([])
+    const[error,setError]=useState(false)
     const [moneda,SelectMonedas]=useSelectMonedas('Elije tu Moneda', monedas)
     const [cryptoMoneda,SelectCryptoMoneda]=useSelectMonedas('Elije tu Crypto Moneda', crytpo)
 
@@ -65,18 +69,33 @@ const Formulario = () => {
  
      const  handleSubmit=(e)=>{
         e.preventDefault()
+       if([moneda,cryptoMoneda].includes(''))
+       {
+         setError(true)
+         return
+       }
+       setError(false)
+       setMonedas({
+        moneda,
+       cryptoMoneda
 
-         console.log(moneda)
-         console.log(cryptoMoneda)
-
+       })
      }
 
   return (
+    <>
+           
+            {error && <MensajeError/>} 
+      
+
+    
+   
     <form
            onSubmit={handleSubmit}
     >
         <SelectMonedas/>
         <SelectCryptoMoneda/>
+       
 
        <InputSubmit
           type="submit"
@@ -87,6 +106,7 @@ const Formulario = () => {
 
 
     </form>
+    </>
   )
 }
 
