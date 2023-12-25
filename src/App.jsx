@@ -104,7 +104,7 @@ useEffect(()=>{
                   alt="imagen"
               ></Imagen>
      <div>
-    <Heading>Cotizador de Crypto Monedas</Heading>
+    <Heading>Cotizador de Crypto Monedasss</Heading>
     <Formulario
         setMonedas={setMonedas}
         />
