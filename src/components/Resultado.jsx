@@ -29,7 +29,7 @@ span{
 
 `
 const Precio=styled.p`
-font-size:10px;
+font-size:30px;
 span{
    font-weight:700;
 }    
